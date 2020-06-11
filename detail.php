@@ -1,3 +1,61 @@
+
+<?php
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+
+// Agrega credenciales
+MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
+
+
+// Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+$item->title = $_POST['title'];
+$item->quantity = $_POST['unit'];
+$item->unit_price = $_POST['price'];
+$preference->items = array($item);
+
+$payer = new MercadoPago\Payer();
+  $payer->name = "Charles";
+  $payer->surname = "Luevano";
+  $payer->email = "charles@hotmail.com";
+  $payer->date_created = "2018-06-02T12:58:41.425-04:00";
+  $payer->phone = array(
+    "area_code" => "",
+    "number" => "949 128 866"
+  );
+  
+  $payer->identification = array(
+    "type" => "DNI",
+    "number" => "12345678"
+  );
+  
+  $payer->address = array(
+    "street_name" => "Cuesta Miguel Armendáriz",
+    "street_number" => 1004,
+    "zip_code" => "11020"
+  );
+$preference->payer;
+
+$preference->back_urls = array(
+    "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo",
+    "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/cancelaste",
+    "pending" => "https://sinnercito-mp-commerce-php.herokuapp.com/pendiente"
+);
+$preference->auto_return = "approved";
+
+
+$preference->save();
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -124,13 +182,14 @@
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo $_POST['price'] ?>
+                                            <?php echo $_POST['unit'] ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "$" . $_POST['unit'] ?>
+                                            <?php echo "$" . $_POST['price'] ?>
                                         </h3>
                                     </div>
                                     <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    <a href="<?php echo $preference->init_point; ?>">Pagar la Compra</a>
                                 </div>
                             </div>
                         </div>
