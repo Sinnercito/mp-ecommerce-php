@@ -58,9 +58,9 @@ $preference->external_reference="fontanamartin@gmail.com";
 $preference->id="dev_24c65fb163bf11ea96500242ac130004";
 
 $preference->back_urls = array(
-    "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo",
-    "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/canceldo",
-    "pending" => "https://sinnercito-mp-commerce-php.herokuapp.com/pendiente"
+    "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo.php",
+    "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/canceldo.php",
+    "pending" => "https://sinnercito-mp-commerce-php.herokuapp.com/pendiente.php"
 );
 $preference->auto_return = "approved";
 
