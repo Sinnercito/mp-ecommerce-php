@@ -1,16 +1,18 @@
 <?php
+  
+  require __DIR__ .  '/vendor/autoload.php';
+   
+  
+  MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
 
-    MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
-
-    switch($_POST["type"]) {
+  
+  switch($_POST["type"]) {
         case "payment":
-            
-            $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
-            http_response_code(200);
-            $json_string = json_encode($payment); 
-            $file = 'pago.json';
-            file_put_contents($file, $json_string);
-            echo("entro lo q podia");
+            $payment = MercadoPago\Payment::find_by_id($_POST["id"]);
+            header('Content-Type: application/json');
+            echo json_encode(['HTTP/1.1 200 OK'], 200);
+            // Esta es la prueba pero deberia guardarlo 
+            var_dump($payment);
             break;
         case "plan":
             $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
