@@ -39,6 +39,19 @@ $payer = new MercadoPago\Payer();
   );
 $preference->payer;
 
+
+$preference->payment_methods = array(
+    "excluded_payment_methods" => array(
+      array("id" => "amex")
+    ),
+    "excluded_payment_types" => array(
+      array("id" => "atm")
+    ),
+    "installments" => 6
+  );
+
+
+
 $preference->back_urls = array(
     "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo",
     "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/cancelaste",
@@ -188,7 +201,7 @@ $preference->save();
                                             <?php echo "$" . $_POST['price'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                   
                                     <a href="<?php echo $preference->init_point; ?>">Pagar la Compra</a>
                                 </div>
                             </div>
