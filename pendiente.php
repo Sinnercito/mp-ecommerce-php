@@ -1,4 +1,4 @@
 <?php
 echo ("el putoooo");
-echo ($_POST["collection_id"]);
+echo ($_POST["collector_id"]);
 ?>
