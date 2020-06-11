@@ -5,7 +5,7 @@ require __DIR__ .  '/vendor/autoload.php';
 
 // Agrega credenciales
 MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
-
+MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
@@ -54,14 +54,12 @@ $preference->payment_methods = array(
   );
 
 $preference->external_reference="fontanamartin@gmail.com";
-
-$preference->id="dev_24c65fb163bf11ea96500242ac130004";
-
 $preference->back_urls = array(
     "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo.php",
-    "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/canceldo.php",
+    "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/cancelado.php",
     "pending" => "https://sinnercito-mp-commerce-php.herokuapp.com/pendiente.php"
 );
+
 $preference->auto_return = "approved";
 
 
