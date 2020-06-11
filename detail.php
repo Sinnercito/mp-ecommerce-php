@@ -13,6 +13,7 @@ $preference = new MercadoPago\Preference();
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
 $item->id="1234";
+$item->picture_url= $_POST['img'];
 $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
@@ -54,6 +55,7 @@ $preference->payment_methods = array(
   );
 
 $preference->external_reference="fontanamartin@gmail.com";
+$preference->notification_url="https://sinnercito-mp-commerce-php.herokuapp.com/notificaciones.php";
 $preference->back_urls = array(
     "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo.php",
     "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/cancelado.php",
