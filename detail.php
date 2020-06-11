@@ -12,19 +12,22 @@ $preference = new MercadoPago\Preference();
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
+$item->id="1234"
 $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
+$item->description = "Dispositivo movil de Tienda e-commerce"
+
 $preference->items = array($item);
 
 $payer = new MercadoPago\Payer();
-  $payer->name = "Charles";
-  $payer->surname = "Luevano";
-  $payer->email = "charles@hotmail.com";
+  $payer->name = "Lalo";
+  $payer->surname = "Landa";
+  $payer->email = "test_user_63274575@testuser.com";
   $payer->date_created = "2018-06-02T12:58:41.425-04:00";
   $payer->phone = array(
-    "area_code" => "",
-    "number" => "949 128 866"
+    "area_code" => "11",
+    "number" => "22223333"
   );
   
   $payer->identification = array(
@@ -33,9 +36,9 @@ $payer = new MercadoPago\Payer();
   );
   
   $payer->address = array(
-    "street_name" => "Cuesta Miguel Armendáriz",
-    "street_number" => 1004,
-    "zip_code" => "11020"
+    "street_name" => "False",
+    "street_number" => 123,
+    "zip_code" => "1111"
   );
 $preference->payer;
 
@@ -50,11 +53,11 @@ $preference->payment_methods = array(
     "installments" => 6
   );
 
-
+$preference->external_reference="fontanamartin@gmail.com"
 
 $preference->back_urls = array(
     "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo",
-    "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/cancelaste",
+    "failure" => "https://sinnercito-mp-commerce-php.herokuapp.com/canceldo",
     "pending" => "https://sinnercito-mp-commerce-php.herokuapp.com/pendiente"
 );
 $preference->auto_return = "approved";
