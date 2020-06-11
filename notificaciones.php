@@ -4,8 +4,13 @@
 
     switch($_POST["type"]) {
         case "payment":
-            $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
             
+            $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
+            http_response_code(200);
+            $json_string = json_encode($payment); 
+            $file = 'pago.json';
+            file_put_contents($file, $json_string);
+            echo("entro lo q podia");
             break;
         case "plan":
             $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
