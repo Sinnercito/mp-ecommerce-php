@@ -12,11 +12,11 @@ $preference = new MercadoPago\Preference();
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->id="1234"
+$item->id="1234";
 $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
-$item->description = "Dispositivo movil de Tienda e-commerce"
+$item->description = "Dispositivo movil de Tienda e-commerce";
 
 $preference->items = array($item);
 
@@ -53,7 +53,7 @@ $preference->payment_methods = array(
     "installments" => 6
   );
 
-$preference->external_reference="fontanamartin@gmail.com"
+$preference->external_reference="fontanamartin@gmail.com";
 
 $preference->back_urls = array(
     "success" => "https://sinnercito-mp-commerce-php.herokuapp.com/yaestuyo",
