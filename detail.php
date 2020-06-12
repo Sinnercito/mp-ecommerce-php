@@ -1,5 +1,8 @@
 
 <?php
+
+//DESARROLLO RAPIDO POR TIEMPOS DE ENTREGA:::___::: FALTA FORMILARIO INGRESAR DATOS GUESTs
+
 // SDK de Mercado Pago
 require __DIR__ .  '/vendor/autoload.php';
 
