@@ -11,7 +11,6 @@
             echo json_encode(['HTTP/1.1 200 OK'], 200);
             var_dump($payment);
             file_put_contents('cliente.json',json_encode($_POST));
-
             var_dump($_POST);
             break;
         case "plan":
