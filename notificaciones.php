@@ -9,9 +9,7 @@
             $payment = MercadoPago\Payment::find_by_id($_POST["id"]);
             header('Content-Type: application/json');
             echo json_encode(['HTTP/1.1 200 OK'], 200);
-            var_dump($payment);
             file_put_contents('cliente.json',json_encode($_POST));
-            var_dump($_POST);
             break;
         case "plan":
             $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
@@ -23,7 +21,10 @@
             $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
             break;
             case "test":
-                echo ("la puta");
+                header('Content-Type: application/json');
+                echo json_encode(['HTTP/1.1 200 OK'], 200);
+                file_put_contents('cliente.json',json_encode($_POST));
+                break;
             break;
     }
 
