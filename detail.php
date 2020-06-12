@@ -12,8 +12,8 @@ $preference = new MercadoPago\Preference();
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->id="1234";
-$item->picture_url= $_POST['img'];
+$item->id = "1234";
+$item->picture_url = "https://sinnercito-mp-commerce-php.herokuapp.com".$_POST['img'];
 $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
