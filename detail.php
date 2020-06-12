@@ -18,12 +18,13 @@ $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
 $item->description = "Dispositivo movil de Tienda e-commerce";
-
 $preference->items = array($item);
 
 $payer = new MercadoPago\Payer();
   $payer->name = "Lalo";
   $payer->surname = "Landa";
+  $payer->first_name="Lalo";
+  $payer->las_name= "Landa";
   $payer->email = "test_user_63274575@testuser.com";
   $payer->date_created = "2018-06-02T12:58:41.425-04:00";
   $payer->phone = array(
@@ -41,7 +42,7 @@ $payer = new MercadoPago\Payer();
     "street_number" => 123,
     "zip_code" => "1111"
   );
-$preference->payer;
+$preference->payer = $payer;
 
 
 $preference->payment_methods = array(
@@ -67,6 +68,7 @@ $preference->auto_return = "approved";
 
 $preference->save();
 
+var_dump($preference);
 ?>
 
 

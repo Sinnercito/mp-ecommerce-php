@@ -5,9 +5,6 @@
   
   MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398');
   
-
-  
-  
   
   
   switch($_POST["type"]) {
@@ -15,7 +12,8 @@
             $payment = MercadoPago\Payment::find_by_id($_POST["id"]);
             header('Content-Type: application/json');
             echo json_encode(['HTTP/1.1 200 OK'], 200);
-            // Esta es la prueba pero deberia guardarlo 
+
+            
             var_dump($payment);
             break;
         case "plan":
